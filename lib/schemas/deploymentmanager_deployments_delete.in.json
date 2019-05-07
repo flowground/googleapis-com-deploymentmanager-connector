@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "deletePolicy": {
+            "type": "string",
+            "enum": [
+                "ABANDON",
+                "DELETE"
+            ],
+            "default": "DELETE"
+        },
+        "deployment": {
+            "required": true,
+            "type": "string"
+        },
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

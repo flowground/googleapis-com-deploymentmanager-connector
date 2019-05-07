@@ -1,0 +1,356 @@
+{
+    "title": "Google Cloud Deployment Manager",
+    "description": "Declares, configures, and deploys complex solutions on Google Cloud Platform.",
+    "docsUrl": "https://cloud.google.com/deployment-manager/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/deploymentmanager/v2/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/deploymentmanager/v2/projects",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "deploymentmanager_deployments_list": {
+            "main": "./lib/actions/deploymentmanager_deployments_list.js",
+            "title": "Lists all deployments for a given project.",
+            "description": "Lists all deployments for a given project.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_deployments_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_deployments_insert": {
+            "main": "./lib/actions/deploymentmanager_deployments_insert.js",
+            "title": "Creates a deployment and all of the resources described by the deployment manifest.",
+            "description": "Creates a deployment and all of the resources described by the deployment manifest.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_deployments_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_deployments_delete": {
+            "main": "./lib/actions/deploymentmanager_deployments_delete.js",
+            "title": "Deletes a deployment and all of the resources in the deployment.",
+            "description": "Deletes a deployment and all of the resources in the deployment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_deployments_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_deployments_get": {
+            "main": "./lib/actions/deploymentmanager_deployments_get.js",
+            "title": "Gets information about a specific deployment.",
+            "description": "Gets information about a specific deployment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_deployments_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_deployments_patch": {
+            "main": "./lib/actions/deploymentmanager_deployments_patch.js",
+            "title": "Updates a deployment and all of the resources described by the deployment manifest. This method supports patch semantics.",
+            "description": "Updates a deployment and all of the resources described by the deployment manifest. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_deployments_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_deployments_update": {
+            "main": "./lib/actions/deploymentmanager_deployments_update.js",
+            "title": "Updates a deployment and all of the resources described by the deployment manifest.",
+            "description": "Updates a deployment and all of the resources described by the deployment manifest.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_deployments_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_deployments_cancelPreview": {
+            "main": "./lib/actions/deploymentmanager_deployments_cancelPreview.js",
+            "title": "Cancels and removes the preview currently associated with the deployment.",
+            "description": "Cancels and removes the preview currently associated with the deployment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_deployments_cancelPreview.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_manifests_list": {
+            "main": "./lib/actions/deploymentmanager_manifests_list.js",
+            "title": "Lists all manifests for a given deployment.",
+            "description": "Lists all manifests for a given deployment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_manifests_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_manifests_get": {
+            "main": "./lib/actions/deploymentmanager_manifests_get.js",
+            "title": "Gets information about a specific manifest.",
+            "description": "Gets information about a specific manifest.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_manifests_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_resources_list": {
+            "main": "./lib/actions/deploymentmanager_resources_list.js",
+            "title": "Lists all resources in a given deployment.",
+            "description": "Lists all resources in a given deployment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_resources_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_resources_get": {
+            "main": "./lib/actions/deploymentmanager_resources_get.js",
+            "title": "Gets information about a single resource.",
+            "description": "Gets information about a single resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_resources_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_deployments_stop": {
+            "main": "./lib/actions/deploymentmanager_deployments_stop.js",
+            "title": "Stops an ongoing operation. This does not roll back any work that has already been completed, but prevents any new work from being started.",
+            "description": "Stops an ongoing operation. This does not roll back any work that has already been completed, but prevents any new work from being started.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_deployments_stop.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_deployments_getIamPolicy": {
+            "main": "./lib/actions/deploymentmanager_deployments_getIamPolicy.js",
+            "title": "Gets the access control policy for a resource. May be empty if no such policy or resource exists.",
+            "description": "Gets the access control policy for a resource. May be empty if no such policy or resource exists.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_deployments_getIamPolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_deployments_setIamPolicy": {
+            "main": "./lib/actions/deploymentmanager_deployments_setIamPolicy.js",
+            "title": "Sets the access control policy on the specified resource. Replaces any existing policy.",
+            "description": "Sets the access control policy on the specified resource. Replaces any existing policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_deployments_setIamPolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_deployments_testIamPermissions": {
+            "main": "./lib/actions/deploymentmanager_deployments_testIamPermissions.js",
+            "title": "Returns permissions that a caller has on the specified resource.",
+            "description": "Returns permissions that a caller has on the specified resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_deployments_testIamPermissions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_operations_list": {
+            "main": "./lib/actions/deploymentmanager_operations_list.js",
+            "title": "Lists all operations for a project.",
+            "description": "Lists all operations for a project.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_operations_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_operations_get": {
+            "main": "./lib/actions/deploymentmanager_operations_get.js",
+            "title": "Gets information about a specific operation.",
+            "description": "Gets information about a specific operation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_operations_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deploymentmanager_types_list": {
+            "main": "./lib/actions/deploymentmanager_types_list.js",
+            "title": "Lists all resource types for Deployment Manager.",
+            "description": "Lists all resource types for Deployment Manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deploymentmanager_types_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
